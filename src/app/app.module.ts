@@ -11,6 +11,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { ArticleComponent } from './components/article/article.component';
+import { SearchInputPipe } from './pipes/search-input.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ArticleComponent } from './components/article/article.component';
     DashboardComponent,
     ProfileComponent,
     UserCardComponent,
-    ArticleComponent
+    ArticleComponent,
+    SearchInputPipe
   ],
   imports: [
     BrowserModule,

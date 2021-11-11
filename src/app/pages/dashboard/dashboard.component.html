@@ -1,6 +1,26 @@
-<div class="row">
-  <div class="col-3" 
-  *ngFor="let article of articles">
-    <app-article></app-article>
+<div class="container">
+  <h3>Today: {{date | date:'MM/yyyy'}}</h3>
+  <hr/>
+  <button 
+    class="btn btn-primary" 
+    (click)="goPrev()">Prev</button>
+  <button 
+  class="btn btn-primary" 
+  (click)="goNext()">Next</button>
+  <hr/>
+    <input 
+    class="form-control" 
+    placeholder="Search..." 
+    [(ngModel)]="search"/>
+  <hr/>
+  <div class="row">
+    <div class="col-3" 
+    *ngFor="let article of articles | searchInput:search">
+      <app-article 
+      [title]="article.title" 
+      [publisher]="article.publisher"
+      (onTitleClick)="showAlertTitle($event)"
+      ></app-article>
+    </div>
   </div>
 </div>

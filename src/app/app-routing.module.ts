@@ -24,7 +24,7 @@ const routes: Routes = [
     path:"private",
     children:[
       {
-        path:"dashboard",
+        path:"dashboard/page/:pageNumber",
         component:DashboardComponent
       },
       {

@@ -1,0 +1,37 @@
+<h4>Welcome {{user.email}}</h4>
+
+<div class="from-group">
+  <label>Email</label>
+  <input 
+    class="form-control"
+    [ngClass]="error?'is-invalid':''"
+    [ngStyle]="{'cursor':cursorType}"
+    type="email"
+    [(ngModel)]="user.email"
+    (keydown.enter)="doLogin()"
+    />
+</div>
+<div class="from-group">
+  <label>Password</label>
+  <input class="form-control"
+   [ngClass]="error?'is-invalid':''"
+   type="password" 
+   [(ngModel)]="user.password"
+   (keydown.enter)="doLogin()"/>
+</div>
+
+<div 
+class="alert alert-danger" 
+*ngIf="error">{{error}}</div>
+<div 
+class="alert alert-danger" 
+[hidden]="!error">{{error}}</div>
+
+<button 
+  [disabled]="isNotValid()" 
+  (click)="doLogin()"
+  class="btn btn-success"
+>Login</button>
+
+<button class="btn btn-primary" [routerLink]="['/public/register']">Register</button>
+

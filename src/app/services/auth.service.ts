@@ -9,7 +9,13 @@ import { LoginDTO } from '../interfaces/login-dto';
 export class AuthService {
   private baseUrl:string= environment.api;
   private httpOptionsPublic = {
-    headers: new HttpHeaders({"Content-type":"application/json"})
+    headers: new HttpHeaders({"content-type":"application/json"})
+  }
+  private httpOptionsPrivate = {
+    headers: new HttpHeaders({
+      "Content-Type":"application/json",
+      "Authorization":"Bearer "+localStorage.getItem("token")
+    })
   }
   constructor(private http:HttpClient) { }
 
@@ -20,5 +26,15 @@ export class AuthService {
   register(user:any){
     return this.http.post(this.baseUrl+"/api/auth/register",user,this.httpOptionsPublic)
   }
+
+  getAllUsers(){
+    return this.http.get(this.baseUrl+"/api/users",this.httpOptionsPrivate);
+  }
+
+  getAllArticles(page:number){
+    return this.http.get("https://chroniclingamerica.loc.gov/search/titles/results/?terms=oakland&format=json&page="+page)
+  }
+
+
 
 }

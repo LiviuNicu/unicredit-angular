@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginDTO } from 'src/app/interfaces/login-dto';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +12,12 @@ export class LoginComponent implements OnInit {
   public email:string='testFromComponent@test.com';
   public isDisabled:boolean = false;
   public user:LoginDTO= {
-    email:"test@test.com",
+    email:"",
     password:""
   }
   public error:boolean|string = false;
   public cursorType="pointer";
-  constructor() {}
+  constructor(private authService:AuthService, private router:Router) {}
 
   ngOnInit(): void {
   }
@@ -24,7 +26,19 @@ export class LoginComponent implements OnInit {
     this.error=false;
     console.log("LOGIN CLICKED")
     if(this.validateEmail(this.user.email)){
-        //TO DO: O SA APELAM SERVICIUL DE LOGIN
+       this.authService.login(this.user).subscribe(
+         {
+          next:(response:any)=>{
+            console.log(response);
+            localStorage.setItem("token",response.token);
+            this.router.navigate(["/private/dashboard"]);
+          },
+          error:(err)=>{
+            console.log(err);
+            this.error = err.error.message;
+          }
+         }
+       )
     }else{
       this.error="email is invalid"
     }

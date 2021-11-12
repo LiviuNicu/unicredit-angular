@@ -40,6 +40,9 @@ export class AuthService {
     return this.http.get("https://restcountries.com/v2/all")
   }
 
+  getCovidStatisticsByCountry(country:string){
+    return this.http.get("https://covid-api.mmediagroup.fr/v1/cases?country="+country)
+  }
 
 
 }

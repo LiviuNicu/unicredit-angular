@@ -1,1 +1,3 @@
-<p>corona-details works!</p>
+<ul>
+  <li *ngFor="let detail of details | keyvalue">{{detail.key}} {{detail.value | json}}</li>
+</ul>

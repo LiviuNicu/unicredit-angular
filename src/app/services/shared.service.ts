@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SharedService {
   private country = new BehaviorSubject<any>({});
-  public contryObs = this.country.asObservable();
+  public countryObs = this.country.asObservable();
   constructor() { }
 
   updateContry(selectedCountry:any){

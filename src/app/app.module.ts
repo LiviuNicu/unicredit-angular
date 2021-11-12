@@ -12,6 +12,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { ArticleComponent } from './components/article/article.component';
 import { SearchInputPipe } from './pipes/search-input.pipe';
+import { CoronaComponent } from './pages/corona/corona.component';
+import { CoronaStisticsComponent } from './components/corona-stistics/corona-stistics.component';
+import { CoronaDetailsComponent } from './components/corona-details/corona-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { SearchInputPipe } from './pipes/search-input.pipe';
     ProfileComponent,
     UserCardComponent,
     ArticleComponent,
-    SearchInputPipe
+    SearchInputPipe,
+    CoronaComponent,
+    CoronaStisticsComponent,
+    CoronaDetailsComponent
   ],
   imports: [
     BrowserModule,

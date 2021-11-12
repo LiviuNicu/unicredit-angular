@@ -1,0 +1,20 @@
+<div class="container">
+  <select class="form-control"
+  [(ngModel)]="selectedCountry" 
+  (ngModelChange)="selectCountry()">
+      <option value="">--Select Countries--</option>
+      <option 
+      *ngFor="let country of countries" 
+      [value]="country | json">{{country.name}}</option>
+  </select>
+
+  <hr/>
+  <div class="row">
+    <div class="col-6">
+      <app-corona-details></app-corona-details>
+    </div>
+    <div class="col-6">
+      <app-corona-stistics></app-corona-stistics>
+    </div>
+  </div>
+</div>

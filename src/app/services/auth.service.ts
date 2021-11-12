@@ -20,6 +20,7 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   login(user:LoginDTO){
+    console.log(user);
     return this.http.post(this.baseUrl+"/api/auth/login",user,this.httpOptionsPublic)
   }
 
@@ -33,6 +34,10 @@ export class AuthService {
 
   getAllArticles(page:number){
     return this.http.get("https://chroniclingamerica.loc.gov/search/titles/results/?terms=oakland&format=json&page="+page)
+  }
+
+  getAllContries(){
+    return this.http.get("https://restcountries.com/v2/all")
   }
 
 

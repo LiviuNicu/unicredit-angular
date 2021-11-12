@@ -15,6 +15,7 @@ import { SearchInputPipe } from './pipes/search-input.pipe';
 import { CoronaComponent } from './pages/corona/corona.component';
 import { CoronaStisticsComponent } from './components/corona-stistics/corona-stistics.component';
 import { CoronaDetailsComponent } from './components/corona-details/corona-details.component';
+import { OnlyLettersDirective } from './directives/only-letters.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CoronaDetailsComponent } from './components/corona-details/corona-detai
     SearchInputPipe,
     CoronaComponent,
     CoronaStisticsComponent,
-    CoronaDetailsComponent
+    CoronaDetailsComponent,
+    OnlyLettersDirective
   ],
   imports: [
     BrowserModule,

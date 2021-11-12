@@ -1,3 +1,13 @@
+
+<input 
+  [(ngModel)]="search" 
+  class="form-control"
+  (ngModelChange)="doSearch(search)"
+  appOnlyLetters
+  />
 <ul>
-  <li *ngFor="let detail of details | keyvalue">{{detail.key}} {{detail.value | json}}</li>
+  <li 
+  *ngFor="let detail of details | keyvalue">
+  {{detail.key}} {{detail.value | json}}
+</li>
 </ul>
